@@ -1,16 +1,11 @@
-# This is a sample Python script.
+rate_first_1000 = 0.07633
+rate_after_1000 = 0.09259
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+kw_hours_used = int(input("Enter the number of Kilowatt hours used: "))
 
+if kw_hours_used <= 1000:
+    amount_owed = rate_first_1000 * kw_hours_used
+else:
+    amount_owed = (rate_first_1000 * 1000) + (rate_after_1000 * (kw_hours_used - 1000))
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print("Amount owed is: $%.2f" % amount_owed)
